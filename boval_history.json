@@ -1,0 +1,101 @@
+[
+    {
+        "type": "Analyse de Sympt\u00f4mes",
+        "age": 30,
+        "weight": 70.0,
+        "symptoms": "",
+        "timestamp": "2025-12-12T23:16:45.709181",
+        "analysis": {
+            "found_keywords": [],
+            "recommendation": "D'apr\u00e8s votre description, aucun sympt\u00f4me d'urgence majeur n'a \u00e9t\u00e9 d\u00e9tect\u00e9. Continuez \u00e0 surveiller votre \u00e9tat et consultez un m\u00e9decin si les sympt\u00f4mes persistent ou s'aggravent."
+        }
+    },
+    {
+        "type": "Analyse de Sympt\u00f4mes",
+        "age": 30,
+        "weight": 70.0,
+        "symptoms": "",
+        "timestamp": "2025-12-12T23:24:06.358063",
+        "analysis": {
+            "found_keywords": [],
+            "recommendation": "D'apr\u00e8s votre description, aucun sympt\u00f4me d'urgence majeur n'a \u00e9t\u00e9 d\u00e9tect\u00e9. Continuez \u00e0 surveiller votre \u00e9tat et consultez un m\u00e9decin si les sympt\u00f4mes persistent ou s'aggravent."
+        }
+    },
+    {
+        "type": "Analyse de Sympt\u00f4mes",
+        "age": 30,
+        "weight": 70.0,
+        "symptoms": "",
+        "analysis": {
+            "found_keywords": [],
+            "recommendation": "D'apr\u00e8s votre description, aucun sympt\u00f4me d'urgence majeur n'a \u00e9t\u00e9 d\u00e9tect\u00e9. Continuez \u00e0 surveiller votre \u00e9tat et consultez un m\u00e9decin si les sympt\u00f4mes persistent ou s'aggravent."
+        },
+        "timestamp": "2025-12-13T00:41:14.452668"
+    },
+    {
+        "type": "Analyse de Sympt\u00f4mes",
+        "age": 30,
+        "weight": 70.0,
+        "symptoms": "",
+        "analysis": {
+            "found_keywords": [],
+            "recommendation": "D'apr\u00e8s votre description, aucun sympt\u00f4me d'urgence majeur n'a \u00e9t\u00e9 d\u00e9tect\u00e9. Continuez \u00e0 surveiller votre \u00e9tat et consultez un m\u00e9decin si les sympt\u00f4mes persistent ou s'aggravent."
+        },
+        "timestamp": "2025-12-13T00:41:33.815915"
+    },
+    {
+        "type": "Analyse de Sympt\u00f4mes",
+        "age": 30,
+        "weight": 70.0,
+        "symptoms": "",
+        "analysis": {
+            "found_keywords": [],
+            "recommendation": "D'apr\u00e8s votre description, aucun sympt\u00f4me d'urgence majeur n'a \u00e9t\u00e9 d\u00e9tect\u00e9. Continuez \u00e0 surveiller votre \u00e9tat et consultez un m\u00e9decin si les sympt\u00f4mes persistent ou s'aggravent."
+        },
+        "timestamp": "2025-12-13T00:41:45.021560"
+    },
+    {
+        "type": "Analyse de Sympt\u00f4mes",
+        "age": 30,
+        "weight": 70.0,
+        "symptoms": "",
+        "analysis": {
+            "found_keywords": [],
+            "recommendation": "D'apr\u00e8s votre description, aucun sympt\u00f4me d'urgence majeur n'a \u00e9t\u00e9 d\u00e9tect\u00e9. Continuez \u00e0 surveiller votre \u00e9tat et consultez un m\u00e9decin si les sympt\u00f4mes persistent ou s'aggravent."
+        },
+        "timestamp": "2025-12-13T00:41:51.501782"
+    },
+    {
+        "type": "Analyse de Sympt\u00f4mes",
+        "age": 30,
+        "weight": 70.0,
+        "symptoms": "",
+        "analysis": {
+            "found_keywords": [],
+            "recommendation": "D'apr\u00e8s votre description, aucun sympt\u00f4me d'urgence majeur n'a \u00e9t\u00e9 d\u00e9tect\u00e9. Continuez \u00e0 surveiller votre \u00e9tat et consultez un m\u00e9decin si les sympt\u00f4mes persistent ou s'aggravent."
+        },
+        "timestamp": "2025-12-13T00:41:56.371908"
+    },
+    {
+        "type": "Analyse de Sympt\u00f4mes",
+        "age": 30,
+        "weight": 70.0,
+        "symptoms": "",
+        "analysis": {
+            "found_keywords": [],
+            "recommendation": "D'apr\u00e8s votre description, aucun sympt\u00f4me d'urgence majeur n'a \u00e9t\u00e9 d\u00e9tect\u00e9. Continuez \u00e0 surveiller votre \u00e9tat et consultez un m\u00e9decin si les sympt\u00f4mes persistent ou s'aggravent."
+        },
+        "timestamp": "2025-12-13T00:44:45.273831"
+    },
+    {
+        "type": "Analyse de Sympt\u00f4mes",
+        "age": 30,
+        "weight": 70.0,
+        "symptoms": "geeyyryr",
+        "analysis": {
+            "found_keywords": [],
+            "recommendation": "D'apr\u00e8s votre description, aucun sympt\u00f4me d'urgence majeur n'a \u00e9t\u00e9 d\u00e9tect\u00e9. Continuez \u00e0 surveiller votre \u00e9tat et consultez un m\u00e9decin si les sympt\u00f4mes persistent ou s'aggravent."
+        },
+        "timestamp": "2025-12-13T01:28:04.647414"
+    }
+]

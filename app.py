@@ -34,8 +34,7 @@ authenticator = stauth.Authenticate(
     config['credentials'],
     config['cookie']['name'],
     config['cookie']['key'],
-    config['cookie']['expiry_days'],
-    config['preauthorized']
+    config['cookie']['expiry_days']
 )
 
 # Check if user is already logged in
@@ -63,8 +62,49 @@ if st.session_state.get("authentication_status"):
     st.sidebar.markdown(T("sidebar_intro"))
     st.sidebar.info(T("sidebar_warning"))
 
-    # Main page
+    # Main page - Enhanced Welcome Layout
+    st.image('im_1.jpeg', width=500)
     st.markdown(f'<div class="main-welcome-section"><h1>{T("welcome_title")}</h1><p>{T("welcome_message")}</p></div>', unsafe_allow_html=True)
+
+    st.markdown("---")
+    st.header(T("welcome_section_features_title"))
+    st.markdown("---")
+
+    # Feature 1: Radiography Analysis
+    col_img1, col_desc1 = st.columns([0.3, 0.7])
+    with col_img1:
+        st.image('im_2.jpeg', width=150)
+    with col_desc1:
+        st.subheader(f"🩻 {T('welcome_feature_radio_title')}")
+        st.markdown(T('welcome_feature_radio_desc'))
+    st.markdown("---")
+
+    # Feature 2: Symptom Analysis
+    col_desc2, col_img2 = st.columns([0.7, 0.3])
+    with col_desc2:
+        st.subheader(f"📝 {T('welcome_feature_symptom_title')}")
+        st.markdown(T('welcome_feature_symptom_desc'))
+    with col_img2:
+        st.image('img_2.jpg', width=150)
+    st.markdown("---")
+
+    # Feature 3: History Tracking & Reports
+    col_icon3, col_desc3 = st.columns([0.1, 0.9])
+    with col_icon3:
+        st.markdown("📈")
+    with col_desc3:
+        st.subheader(T('welcome_feature_history_title'))
+        st.markdown(T('welcome_feature_history_desc'))
+    st.markdown("---")
+
+    # Feature 4: AI Explainability (XAI)
+    col_icon4, col_desc4 = st.columns([0.1, 0.9])
+    with col_icon4:
+        st.markdown("🧠")
+    with col_desc4:
+        st.subheader(T('welcome_feature_xai_title'))
+        st.markdown(T('welcome_feature_xai_desc'))
+    st.markdown("---")
 
 
 else:
@@ -86,8 +126,14 @@ else:
     choice = st.selectbox(T_unauthenticated("register_select_option"), ['Login', 'Register'])
 
     if choice == 'Login':
-        name, authentication_status, username = authenticator.login(T_unauthenticated("login_button"), 'main')
+        login_result = authenticator.login(location='main')
         
+        if isinstance(login_result, tuple) and len(login_result) == 3:
+            name, authentication_status, username = login_result
+        else:
+            # If login_result is None or not a 3-tuple, set defaults to avoid TypeError
+            name, authentication_status, username = None, None, None
+
         if authentication_status == False:
             st.error(T_unauthenticated('login_error'))
         elif authentication_status == None:
@@ -98,7 +144,7 @@ else:
 
     elif choice == 'Register':
         try:
-            if authenticator.register_user(T_unauthenticated('register_button'), 'main', preauthorization=False):
+            if authenticator.register_user(location='main', preauthorization=False):
                 st.success(T_unauthenticated('register_success_message'))
                 # Save the updated config
                 with open('config.yaml', 'w') as file:

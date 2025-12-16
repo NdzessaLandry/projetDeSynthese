@@ -40,3 +40,13 @@ def load_history():
             return history_from_file
     except (FileNotFoundError, json.JSONDecodeError):
         return []
+
+def clear_history():
+    """Efface le fichier d'historique de l'utilisateur en y écrivant une liste vide."""
+    history_file = get_user_history_file()
+    if not history_file:
+        return
+    
+    with open(history_file, 'w') as f:
+        json.dump([], f)
+

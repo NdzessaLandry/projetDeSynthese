@@ -1,7 +1,32 @@
 [
     {
+        "type": "Analyse Radiographique",
+        "predicted_disease": "Tuberculosis",
+        "prediction_probability": 0.8947813510894775,
+        "all_predictions": [
+            0.001095705316402018,
+            0.030785826966166496,
+            0.00106120016425848,
+            0.004023457877337933,
+            0.0009208307601511478,
+            0.0013676867820322514,
+            0.010940242558717728,
+            0.002245684852823615,
+            6.556906009791419e-05,
+            0.00622746255248785,
+            0.019138887524604797,
+            0.010582766495645046,
+            0.002250020857900381,
+            0.0061829849146306515,
+            0.003103450173512101,
+            0.0052268472500145435,
+            0.8947813510894775
+        ],
+        "timestamp": "2025-12-22T12:32:03.144715"
+    },
+    {
         "type": "heart_disease_prediction",
-        "timestamp": "2025-12-16T21:03:46.479328",
+        "timestamp": "2025-12-22T12:36:13.788223",
         "input_features": {
             "age": 50,
             "sex": "Male",
@@ -15,80 +40,61 @@
             "oldpeak": 1.0,
             "slope": "upsloping",
             "ca": 0,
-            "thal": "normal"
+            "thal": "fixed defect"
         },
-        "prediction": 1,
-        "prediction_probability_positive": 0.51,
-        "prediction_probability_negative": 0.49,
-        "result_message": "Risque \u00c9lev\u00e9 de Maladie Cardiaque d\u00e9tect\u00e9. Veuillez consulter un m\u00e9decin."
+        "prediction": 0,
+        "prediction_probability_positive": 0.5,
+        "prediction_probability_negative": 0.5,
+        "result_message": "Faible Risque de Maladie Cardiaque d\u00e9tect\u00e9."
     },
     {
-        "type": "heart_disease_prediction",
-        "timestamp": "2025-12-16T21:08:51.295872",
-        "input_features": {
-            "age": 50,
-            "sex": "Male",
-            "cp": "typical angina",
-            "trestbps": 120,
-            "chol": 200,
-            "fbs": true,
-            "restecg": "normal",
-            "thalch": 150,
-            "exang": true,
-            "oldpeak": 1.0,
-            "slope": "upsloping",
-            "ca": 0,
-            "thal": "normal"
-        },
-        "prediction": 1,
-        "prediction_probability_positive": 0.51,
-        "prediction_probability_negative": 0.49,
-        "result_message": "Risque \u00c9lev\u00e9 de Maladie Cardiaque d\u00e9tect\u00e9. Veuillez consulter un m\u00e9decin."
+        "type": "Analyse Radiographique",
+        "predicted_disease": "Tuberculosis",
+        "prediction_probability": 0.8947813510894775,
+        "all_predictions": [
+            0.001095705316402018,
+            0.030785826966166496,
+            0.00106120016425848,
+            0.004023457877337933,
+            0.0009208307601511478,
+            0.0013676867820322514,
+            0.010940242558717728,
+            0.002245684852823615,
+            6.556906009791419e-05,
+            0.00622746255248785,
+            0.019138887524604797,
+            0.010582766495645046,
+            0.002250020857900381,
+            0.0061829849146306515,
+            0.003103450173512101,
+            0.0052268472500145435,
+            0.8947813510894775
+        ],
+        "timestamp": "2025-12-22T14:25:18.621861"
     },
     {
-        "type": "heart_disease_prediction",
-        "timestamp": "2025-12-16T21:09:55.378670",
-        "input_features": {
-            "age": 50,
-            "sex": "Male",
-            "cp": "typical angina",
-            "trestbps": 120,
-            "chol": 200,
-            "fbs": true,
-            "restecg": "normal",
-            "thalch": 150,
-            "exang": true,
-            "oldpeak": 1.0,
-            "slope": "flat",
-            "ca": 0,
-            "thal": "normal"
-        },
-        "prediction": 1,
-        "prediction_probability_positive": 0.57,
-        "prediction_probability_negative": 0.43,
-        "result_message": "Risque \u00c9lev\u00e9 de Maladie Cardiaque d\u00e9tect\u00e9. Veuillez consulter un m\u00e9decin."
-    },
-    {
-        "type": "heart_disease_prediction",
-        "timestamp": "2025-12-16T21:10:38.199496",
-        "input_features": {
-            "age": 50,
-            "sex": "Male",
-            "cp": "typical angina",
-            "trestbps": 120,
-            "chol": 200,
-            "fbs": true,
-            "restecg": "st-t abnormality",
-            "thalch": 150,
-            "exang": true,
-            "oldpeak": 1.0,
-            "slope": "flat",
-            "ca": 0,
-            "thal": "normal"
-        },
-        "prediction": 1,
-        "prediction_probability_positive": 0.61,
-        "prediction_probability_negative": 0.39,
-        "result_message": "Risque \u00c9lev\u00e9 de Maladie Cardiaque d\u00e9tect\u00e9. Veuillez consulter un m\u00e9decin."
+        "type": "Analyse Radiographique",
+        "predicted_disease": "Tuberculosis",
+        "prediction_probability": 0.8947813510894775,
+        "all_predictions": [
+            0.001095705316402018,
+            0.030785826966166496,
+            0.00106120016425848,
+            0.004023457877337933,
+            0.0009208307601511478,
+            0.0013676867820322514,
+            0.010940242558717728,
+            0.002245684852823615,
+            6.556906009791419e-05,
+            0.00622746255248785,
+            0.019138887524604797,
+            0.010582766495645046,
+            0.002250020857900381,
+            0.0061829849146306515,
+            0.003103450173512101,
+            0.0052268472500145435,
+            0.8947813510894775
+        ],
+        "timestamp": "2025-12-22T14:25:47.600198"
     }
 ]

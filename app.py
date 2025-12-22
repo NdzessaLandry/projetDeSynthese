@@ -26,6 +26,13 @@ if 'last_radio_analysis' not in st.session_state:
 if 'last_symptom_analysis' not in st.session_state:
     st.session_state['last_symptom_analysis'] = None
 
+# --- LANGUAGE SELECTION (for unauthenticated screen) ---
+# Define T_unauthenticated here so it's always available
+def get_text_unauthenticated(key):
+    lang = st.session_state.get('lang_unauthenticated', 'fr')
+    return TEXTS[lang][key]
+T_unauthenticated = get_text_unauthenticated
+
 # --- AUTHENTICATION ---
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
@@ -108,47 +115,74 @@ if st.session_state.get("authentication_status"):
 
 
 else:
-    # --- LANGUAGE SELECTION (pour écran de connexion/inscription) ---
-    # Ici, nous utilisons une version simplifiée de T pour éviter les erreurs avant l'authentification
-    # Le sélecteur de langue sera affiché mais ne mettra pas à jour st.session_state['lang'] directement
-    # car la fonction get_text n'est pas encore définie dans ce scope
-    # Pour l'écran de connexion/inscription, nous utiliserons des textes hardcodés ou une version simple de T
-    st.sidebar.selectbox("Langue / Language", options=['fr', 'en'], key='lang_unauthenticated') # Utilisez une clé différente
+    # --- LANGUAGE SELECTION (for login/register screen) ---
+    st.sidebar.selectbox(T_unauthenticated("language_select_label"), options=['fr', 'en'], key='lang_unauthenticated')
 
     def get_text_unauthenticated(key):
-        # Assure that 'lang_unauthenticated' is initialized
-        if 'lang_unauthenticated' not in st.session_state:
-            st.session_state['lang_unauthenticated'] = 'fr'
-        return TEXTS[st.session_state['lang_unauthenticated']][key]
+        lang = st.session_state.get('lang_unauthenticated', 'fr')
+        return TEXTS[lang][key]
     T_unauthenticated = get_text_unauthenticated
 
-    # --- LOGIN / REGISTER UI ---
-    choice = st.selectbox(T_unauthenticated("register_select_option"), ['Login', 'Register'])
+    # --- LOGIN / REGISTER / FORGOT PASSWORD UI ---
+    choice = st.selectbox(
+        T_unauthenticated("register_select_option"), 
+        [T_unauthenticated("login_option_label"), T_unauthenticated("register_option_label"), T_unauthenticated("forgot_password_option_label")]
+    )
 
-    if choice == 'Login':
-        login_result = authenticator.login(location='main')
-        
-        if isinstance(login_result, tuple) and len(login_result) == 3:
+    if choice == T_unauthenticated("login_option_label"):
+        # The login method can return None while the user hasn't submitted the form
+        login_result = authenticator.login('main')
+        if login_result:
             name, authentication_status, username = login_result
-        else:
-            # If login_result is None or not a 3-tuple, set defaults to avoid TypeError
-            name, authentication_status, username = None, None, None
+            if authentication_status == False:
+                st.error(T_unauthenticated('login_error'))
+            elif authentication_status == None:
+                st.warning(T_unauthenticated('login_warning'))
+            elif authentication_status == True:
+                st.session_state['lang'] = st.session_state.get('lang_unauthenticated', 'fr')
+                st.rerun()
 
-        if authentication_status == False:
-            st.error(T_unauthenticated('login_error'))
-        elif authentication_status == None:
-            st.warning(T_unauthenticated('login_warning'))
-        elif authentication_status == True:
-            st.session_state['lang'] = st.session_state['lang_unauthenticated'] # Synchronize lang after login
-            st.rerun() # Rerun the script to enter the main app logic
-
-    elif choice == 'Register':
+    elif choice == T_unauthenticated("register_option_label"):
         try:
-            if authenticator.register_user(location='main', preauthorization=False):
+            email_of_registered_user, username_of_registered_user, name_of_registered_user = authenticator.register_user('main', password_hint=False)
+            if email_of_registered_user:
                 st.success(T_unauthenticated('register_success_message'))
                 # Save the updated config
                 with open('config.yaml', 'w') as file:
                     yaml.dump(config, file, default_flow_style=False)
-                st.info(T_unauthenticated('register_info_message'))
+                
+                # Automatically log in the user
+                st.session_state["authentication_status"] = True
+                st.session_state["name"] = name_of_registered_user
+                st.session_state["username"] = username_of_registered_user
+                st.session_state['lang'] = st.session_state.get('lang_unauthenticated', 'fr')
+                st.info(T_unauthenticated('register_info_auto_login'))
+                st.rerun()
+
         except Exception as e:
             st.error(e)
+            
+    elif choice == T_unauthenticated("forgot_password_option_label"):
+        try:
+            username_of_forgotten_password, email_of_forgotten_password, random_password = authenticator.forgot_password('main')
+            if username_of_forgotten_password:
+                st.success(T_unauthenticated('forgot_password_success_message'))
+                st.info(f"{T_unauthenticated('forgot_password_new_password_message')} **{random_password}**")
+                # Save the updated config
+                with open('config.yaml', 'w') as file:
+                    yaml.dump(config, file, default_flow_style=False)
+            elif not username_of_forgotten_password:
+                st.error(T_unauthenticated('forgot_password_error'))
+        except Exception as e:
+            st.error(e)
+
+# --- RESET PASSWORD (for logged-in users) ---
+if st.session_state.get("authentication_status"):
+    try:
+        if authenticator.reset_password(st.session_state["username"], 'sidebar'):
+            st.sidebar.success(T('reset_password_success'))
+            # Save the updated config
+            with open('config.yaml', 'w') as file:
+                yaml.dump(config, file, default_flow_style=False)
+    except Exception as e:
+        st.sidebar.error(e)
